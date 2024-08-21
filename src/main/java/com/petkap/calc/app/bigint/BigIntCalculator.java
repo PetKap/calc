@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 public class BigIntCalculator {
 
-	BigInteger result;
+	private BigInteger result;
 
 	public BigIntCalculator(String n1, String n2) {
 		BigInteger b1 = new BigInteger(n1);
