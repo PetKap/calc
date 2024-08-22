@@ -38,6 +38,7 @@ public class CalculationTest {
 		CustomNumberCalculator cnc = new CustomNumberCalculator(num1, num2);
 		BigIntCalculator bc = new BigIntCalculator(num1, num2);
 
-		assertEquals(bc.getResult(), cnc.getResult(), String.format("Calculation doesn't match: %s * %s.", num1, num2));
+		assertEquals(bc.getResult().toString(), cnc.getResult().getNumber().toString(),
+				String.format("Calculation doesn't match: %s * %s.", num1, num2));
 	}
 }
