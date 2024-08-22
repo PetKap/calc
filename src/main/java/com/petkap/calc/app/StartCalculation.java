@@ -5,24 +5,23 @@ import com.petkap.calc.app.custom.CustomNumberCalculator;
 
 public class StartCalculation {
 	private static final String BIGINT_CALC = "--bi";
+	private static final String CUSNUM_CALC = "--cn";
 
 	public static void main(String[] args) throws Exception {
-		boolean corNumOfArgs = args.length == 2 || args.length == 3;
+		boolean corNumOfArgs = args.length == 3;
 
 		if (!corNumOfArgs) {
 			throw new Exception("Wrong number of arguments was provided!");
 		}
 
-		String arg1 = args.length > 2 ? args[0] : "";
-		String num1 = arg1 != "" ? args[1] : arg1;
-		String num2 = arg1 != "" ? args[2] : args[1];
-
-		if (arg1 == BIGINT_CALC) {
-			BigIntCalculator biCalc = new BigIntCalculator(num1, num2);
+		if (args[0].equals(BIGINT_CALC)) {
+			BigIntCalculator biCalc = new BigIntCalculator(args[1], args[2]);
 			System.out.println(biCalc.getResult());
-		} else {
-			CustomNumberCalculator cnCalc = new CustomNumberCalculator(num1, num2);
+		} else if (args[0].equals(CUSNUM_CALC)) {
+			CustomNumberCalculator cnCalc = new CustomNumberCalculator(args[1], args[2]);
 			System.out.println(cnCalc.getResult());
+		} else {
+			throw new Exception("Wrong arguments provided!");
 		}
 	}
 
